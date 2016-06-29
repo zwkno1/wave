@@ -2,14 +2,13 @@
 #include <QPainter>
 #include <QTime>
 #include <math.h>
-const int pi = 3.14159265;
 
-SineWave::SineWave(double radius, double speed, const QColor & color, const QPoint & center) :
-    _radius(radius),
-    _speed(speed),
-    _center(center),
-    _currentPhase(0),
-    _color(color)
+SineWave::SineWave(double radius, double speed, const QColor & color) :
+    center_(QPoint(0,0)),
+    radius_(radius),
+    speed_(speed),
+    current_phase_(0),
+    color_(color)
 {
     qsrand(QTime::currentTime().msec());
 }
@@ -17,19 +16,24 @@ SineWave::SineWave(double radius, double speed, const QColor & color, const QPoi
 void SineWave::draw(QPainter *painter)
 {
     painter->save();
-    painter->setPen(QPen(_color));
-    painter->drawEllipse(_center, _radius, _radius);
-    painter->setBrush(QBrush(_color));
+    painter->setPen(QPen(color_));
+    painter->drawEllipse(center_, radius_, radius_);
+    painter->setBrush(QBrush(color_));
     painter->drawEllipse(currentPosition(), 2, 2);
     painter->restore();
 }
 
 void SineWave::refresh()
 {
-    _currentPhase += _speed;
+    current_phase_ += speed_;
 }
 
 QPointF SineWave::currentPosition() const
 {
-    return QPointF(_radius*cos(_currentPhase),_radius*sin(_currentPhase));;
+    return QPointF(center_.x() + radius_*cos(current_phase_), center_.y() + radius_*sin(current_phase_));
+}
+
+void SineWave::setCenter(const QPointF &center)
+{
+    center_ = center;
 }

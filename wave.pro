@@ -14,11 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    displayer.cpp \
-    sinewave.cpp
+    sinewave.cpp \
+    controlwidget.cpp \
+    display.cpp
 
 HEADERS  += mainwindow.h \
-    displayer.h \
-    sinewave.h
+    sinewave.h \
+    controlwidget.h \
+    display.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    controlwidget.ui

@@ -9,16 +9,26 @@ class SineWave
 {
     //y = A*sin(wt);
 public:
-    SineWave(double radius, double speed, const QColor & color,const QPoint & center = QPoint(0,0));
+    SineWave(double radius, double speed, const QColor & colo);
+
     void draw(QPainter *painter);
+
     void refresh();
+
     QPointF currentPosition() const;
+
+    void setCenter(const QPointF & center);
+
 private:
-    QPointF _center;
-    double _radius;
-    double _speed;
-    double _currentPhase;
-    QColor _color;
+    QPointF center_;
+
+    double radius_;
+
+    double speed_;
+
+    double current_phase_;
+
+    QColor color_;
 };
 
 #endif // SINEWAVE_H
