@@ -20,6 +20,8 @@ public:
 
     void step();
 
+    void clear();
+
 protected:
     void paintEvent(QPaintEvent *);
 

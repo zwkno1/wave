@@ -14,21 +14,6 @@
    <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="spacing">
-    <number>6</number>
-   </property>
-   <property name="leftMargin">
-    <number>0</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
-    <number>0</number>
-   </property>
    <item>
     <widget class="QLabel" name="label_3">
      <property name="text">
@@ -72,9 +57,9 @@
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton_deleteLast">
+    <widget class="QPushButton" name="pushButton_clear">
      <property name="text">
-      <string>DeleteLast</string>
+      <string>Clear</string>
      </property>
     </widget>
    </item>
@@ -89,6 +74,48 @@
     <widget class="QPushButton" name="pushButton_control">
      <property name="text">
       <string>Resume</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_5">
+     <property name="text">
+      <string>Fourier Transform</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>stage</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_stage"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_squareWave">
+     <property name="text">
+      <string>Square</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_sawtooth">
+     <property name="text">
+      <string>Sawtooth</string>
      </property>
     </widget>
    </item>

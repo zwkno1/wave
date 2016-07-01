@@ -71,12 +71,20 @@ void Display::push(double radius, double speed)
     else
         sw->setCenter(waves_->last()->currentPosition());
     waves_->push_back(sw);
+    repaint();
 }
 
 void Display::pop()
 {
     if(!waves_->empty())
         waves_->pop_back();
+    repaint();
+}
+
+void Display::clear()
+{
+    waves_->clear();
+    repaint();
 }
 
 void Display::step()

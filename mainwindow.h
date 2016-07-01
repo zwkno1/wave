@@ -23,9 +23,11 @@ public slots:
 
     void push(double radius, double speed);
 
-    void pop();
+    void clear();
 
     void step();
+
+    void fourier(int type, double a, double w, int stage);
 
 protected:
     void timerEvent(QTimerEvent * e);

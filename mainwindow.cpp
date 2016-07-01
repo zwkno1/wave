@@ -16,9 +16,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->controlWidget, SIGNAL(signalAdd(double,double)), this, SLOT(push(double,double)));
-    connect(ui->controlWidget, SIGNAL(signalPop()), this, SLOT(pop()));
+    connect(ui->controlWidget, SIGNAL(signalClear()), this, SLOT(clear()));
     connect(ui->controlWidget, SIGNAL(signalStep()), this, SLOT(step()));
     connect(ui->controlWidget, SIGNAL(signalPauseResume()), this, SLOT(pauseResume()));
+    connect(ui->controlWidget, SIGNAL(signalFourier(int,double,double,int)), this, SLOT(fourier(int,double,double,int)));
 }
 
 MainWindow::~MainWindow()
@@ -36,9 +37,41 @@ void MainWindow::push(double radius, double speed)
     ui->display->push(radius, speed);
 }
 
-void MainWindow::pop()
+void MainWindow::clear()
 {
-    ui->display->pop();
+    ui->display->clear();
+}
+
+void MainWindow::fourier(int type, double a, double w, int stage)
+{
+    ui->display->clear();
+
+    switch(type)
+    {
+    case 1:
+    {
+        int v;
+        for(int i = 0; i < stage; ++i)
+        {
+            v = 2*i + 1;
+            ui->display->push(a/v, w*v);
+        }
+    }
+        break;
+    case 2:
+    {
+        int s = 1;
+        int v;
+        for(int i = 0; i < stage; ++i)
+        {
+            v = 2*i + 1;
+            ui->display->push(a/(v*v)*s, w*v);
+            s = -s;
+        }
+
+    }
+        break;
+    }
 }
 
 void MainWindow::pauseResume()

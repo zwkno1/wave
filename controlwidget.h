@@ -16,15 +16,19 @@ public:
     ~ControlWidget();
 signals:
     void signalAdd(double, double);
-    void signalPop();
+    void signalClear();
     void signalStep();
     void signalPauseResume();
+    void signalFourier(int, double, double, int);
 
 private slots:
     void addSineWave();
     void pauseResume();
+    void square();
+    void sawtooth();
 
 private:
+    void fourier(int type);
     Ui::ControlWidget *ui;
 };
 
